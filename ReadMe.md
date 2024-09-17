@@ -1,4 +1,4 @@
-# NetworkTestControl - 网络检测小工具
+# NetworkTestControl - 网络测试小工具
 
 ## 关于本项目
 
