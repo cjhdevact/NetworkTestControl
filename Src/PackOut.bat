@@ -8,6 +8,8 @@ copy %~dp0NetworkTestControl\bin\x64\Release\NetworkTestControl.exe %~dp0Network
 
 copy %~dp0NetworkTestControl\files\1-安装.bat %~dp0NetworkTestControl-Bin\1-安装.bat
 copy %~dp0NetworkTestControl\files\2-卸载.bat %~dp0NetworkTestControl-Bin\2-卸载.bat
+copy %~dp0NetworkTestControl\files\NetworkTestControl.xml %~dp0NetworkTestControl-Bin\NetworkTestControl.xml
+copy %~dp0NetworkTestControl\files\配置说明.txt %~dp0NetworkTestControl-Bin\配置说明.txt
 
 echo.
 echo 完成！

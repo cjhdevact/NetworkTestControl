@@ -8,6 +8,18 @@
 ::
 ::\*****************************************************/
 @echo off
+::*****************************************************
+::备注：你可以通过设置以下注册表值来自定义配置
+::如果不存在该值或格式无效将使用默认设置。
+::1.检测网络是否超时的间隔时间（毫秒ms）（建议大于1000ms，否则连接失败提示看不清楚而且间隔越短越耗系统内存）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值TestTimer 类型REG_DWORD （默认值为1000）
+::2.检测网络超时的地址（请确保地址有效，否则检测结果可能不正确！）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值TestHostName 类型REG_SZ （默认值为www.baidu.com）
+::3.检测网络连接是否超时的超时时间（毫秒ms）（请确保超时时间不要设置太短，一般为3000以下都正常）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值Timeout 类型REG_DWORD （默认值为3000）
+::4.检测网络连接状态的间隔时间（毫秒ms）（建议大于1000ms，否则连接失败提示看不清楚而且间隔越短越耗系统内存）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值NetworkTimer 类型REG_DWORD （默认值为1000）
+::*****************************************************
 cls
 title 网络测试小工具安装程序
 if "%1" == "/noadm" goto main
@@ -112,6 +124,8 @@ if "%aa%" == "1" echo.
 if "%aa%" == "1" echo 如果长时间停留在此操作，请检测是否被杀毒软件拦截。
 if "%aa%" == "1" echo.
 if "%aa%" == "1" Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /t REG_SZ /d "%programfiles%\CJH\NetworkTestControl\NetworkTestControl.exe" /f
+if "%aa%" == "1" schtasks.exe /Delete /TN NetworkTestControl /F
+if "%aa%" == "1" schtasks.exe /create /tn NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
 echo.
 
 echo.
@@ -165,6 +179,8 @@ if "%aa%" == "1" echo.
 if "%aa%" == "1" echo 如果长时间停留在此操作，请检测是否被杀毒软件拦截。
 if "%aa%" == "1" echo.
 if "%aa%" == "1" Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /t REG_SZ /d "%programfiles%\CJH\NetworkTestControl\NetworkTestControl.exe" /f
+if "%aa%" == "1" schtasks.exe /Delete /TN NetworkTestControl /F
+if "%aa%" == "1" schtasks.exe /create /tn NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
 echo.
 
 echo.
