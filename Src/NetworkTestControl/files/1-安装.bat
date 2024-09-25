@@ -15,10 +15,14 @@
 ::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值TestTimer 类型REG_DWORD （默认值为1000）
 ::2.检测网络超时的地址（请确保地址有效，否则检测结果可能不正确！）：
 ::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值TestHostName 类型REG_SZ （默认值为www.baidu.com）
-::3.检测网络连接是否超时的超时时间（毫秒ms）（请确保超时时间不要设置太短，一般为3000以下都正常）：
-::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值Timeout 类型REG_DWORD （默认值为3000）
+::3.检测网络连接是否超时的超时时间（毫秒ms）（请确保超时时间不要设置太短，一般为2000以下都正常）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值Timeout 类型REG_DWORD （默认值为2000）
 ::4.检测网络连接状态的间隔时间（毫秒ms）（建议大于1000ms，否则连接失败提示看不清楚而且间隔越短越耗系统内存）：
 ::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值NetworkTimer 类型REG_DWORD （默认值为1000）
+::5.使用Tcp模式检测延时（不建议，目前最新版本已经改为调用VB自带的Ping方法，使用该模式可能因创建连接过多而造成网络拥堵）（0=关闭，1=开启）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值UseTcpTest 类型REG_DWORD （默认值为0）
+::6.关闭网络检测（不建议，关闭之后只能判断系统网络连接状态，不能判断网络是否延时）（0=开启网络检测，1=关闭网络检测）：
+::项HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings 值DisableNetworkTest 类型REG_DWORD （默认值为0）
 ::*****************************************************
 cls
 title 网络测试小工具安装程序

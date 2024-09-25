@@ -40,6 +40,8 @@ Public Class Form1
     Dim TestTimer As Integer
     Dim NetworkTimer As Integer
     Dim MyTimeOut As Integer
+    Dim UseTcpTest As Integer
+    Dim DisbTest As Integer
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         If My.Computer.Network.IsAvailable = True Then
             If b = 0 Then
@@ -64,8 +66,31 @@ Public Class Form1
             Me.Show()
         End If
     End Sub
-
-    Sub NetworkTest()
+    Sub NetworkTestPing()
+        Dim hostName As String
+        If Not TestHostName = "" Then
+            hostName = TestHostName
+        Else
+            hostName = "www.baidu.com" ' 替换为你想测试的主机名
+        End If
+        Dim stopwatch As New Stopwatch()
+        Try
+            stopwatch.Start() ' 开始计时
+            My.Computer.Network.Ping(hostName, MyTimeOut)
+            stopwatch.Stop() ' 停止计时
+            ' 计算并输出网络延迟
+            Dim latency As Long = stopwatch.ElapsedMilliseconds
+            'Console.WriteLine("网络延迟是：" & latency & " 毫秒")
+            If latency > MyTimeOut Then
+                b = 1
+            Else
+                b = 0
+            End If
+        Catch ex As Exception
+            b = 1
+        End Try
+    End Sub
+    Sub NetworkTestTcp()
         Dim hostName As String
         If Not TestHostName = "" Then
             hostName = TestHostName
@@ -116,7 +141,7 @@ Public Class Form1
             Dim myt As Integer
             If (Not mykey Is Nothing) Then
                 myt = mykey.GetValue("TestTimer", -1)
-                If Not myt > 0 Then
+                If myt > 0 Then
                     TestTimer = myt
                 Else
                     TestTimer = 1000
@@ -131,7 +156,7 @@ Public Class Form1
             Dim myt As Integer
             If (Not mykey Is Nothing) Then
                 myt = mykey.GetValue("NetworkTimer", -1)
-                If Not myt > 0 Then
+                If myt > 0 Then
                     NetworkTimer = myt
                 Else
                     NetworkTimer = 1000
@@ -145,17 +170,51 @@ Public Class Form1
         Try
             Dim myt As Integer
             If (Not mykey Is Nothing) Then
+                myt = mykey.GetValue("UseTcpTest", -1)
+                If myt > 0 Then
+                    UseTcpTest = myt
+                ElseIf myt > 1 Then
+                    UseTcpTest = 0
+                Else
+                    UseTcpTest = 0
+                End If
+            Else
+                UseTcpTest = 0
+            End If
+        Catch ex As Exception
+            UseTcpTest = 0
+        End Try
+        Try
+            Dim myt As Integer
+            If (Not mykey Is Nothing) Then
+                myt = mykey.GetValue("DisableNetworkTest", -1)
+                If myt > 0 Then
+                    DisbTest = myt
+                ElseIf myt > 1 Then
+                    DisbTest = 0
+                Else
+                    DisbTest = 0
+                End If
+            Else
+                DisbTest = 0
+            End If
+        Catch ex As Exception
+            DisbTest = 0
+        End Try
+        Try
+            Dim myt As Integer
+            If (Not mykey Is Nothing) Then
                 myt = mykey.GetValue("Timeout", -1)
                 If myt > 0 Then
                     MyTimeOut = myt
                 Else
-                    MyTimeOut = 3000
+                    MyTimeOut = 2000
                 End If
             Else
-                MyTimeOut = 3000
+                MyTimeOut = 2000
             End If
         Catch ex As Exception
-            MyTimeOut = 3000
+            MyTimeOut = 2000
         End Try
         Try
             Dim myv As String
@@ -190,7 +249,11 @@ Public Class Form1
         Else
             Timer2.Interval = 1000
         End If
-        Timer2.Enabled = True
+        If DisbTest = 0 Then
+            Timer2.Enabled = True
+        Else
+            Timer2.Enabled = False
+        End If
     End Sub
 
     'API移动窗体
@@ -213,6 +276,10 @@ Public Class Form1
     End Sub
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
-        Call NetworkTest()
+        If UseTcpTest = 1 Then
+            Call NetworkTestTcp()
+        Else
+            Call NetworkTestPing()
+        End If
     End Sub
 End Class
