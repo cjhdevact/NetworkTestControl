@@ -75,13 +75,14 @@ Public Class Form1
         End If
         Dim stopwatch As New Stopwatch()
         Try
-            stopwatch.Start() ' 开始计时
-            My.Computer.Network.Ping(hostName, MyTimeOut)
-            stopwatch.Stop() ' 停止计时
+            'stopwatch.Start() ' 开始计时
+            'My.Computer.Network.Ping(hostName, MyTimeOut)
+            'stopwatch.Stop() ' 停止计时
             ' 计算并输出网络延迟
-            Dim latency As Long = stopwatch.ElapsedMilliseconds
+            'Dim latency As Long = stopwatch.ElapsedMilliseconds
             'Console.WriteLine("网络延迟是：" & latency & " 毫秒")
-            If latency > MyTimeOut Then
+            'If latency > MyTimeOut Then
+            If My.Computer.Network.Ping(hostName, MyTimeOut) = False Then
                 b = 1
             Else
                 b = 0
