@@ -1,4 +1,6 @@
-# NetworkTestControl - 网络测试小工具
+<h1 align="center">
+  NetworkTestControl - 网络测试小工具
+</h1>
 
 ## 关于本项目
 
@@ -16,7 +18,7 @@
 
 ## 下载
 
-转到[发布页](https://github.com/cjhdevact/NetworkTestControl/releases)下载程序或源代码。
+转到[发布页](https://github.com/cjhdevact/NetworkTestControl/releases/latest)下载程序或源代码。
 
 ## 自定义检测信息
 
@@ -49,6 +51,10 @@
 6.关闭网络检测（不建议，关闭之后只能判断系统网络连接状态，不能判断网络是否延时）（0=开启网络检测，1=关闭网络检测）：
 
 项`HKEY_CURRENT_USER\Software\CJH\NetworkTestControl\Settings` 值`DisableNetworkTest` 类型`REG_DWORD` （默认值为`0`）
+
+## 开源说明
+
+在修改和由本仓库代码衍生的代码中需要说明“基于 NetworkTestControl 开发”。
 
 ## License
 

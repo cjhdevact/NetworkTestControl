@@ -50,7 +50,8 @@ Public Class Form1
                 Me.Location = New Size((System.Windows.Forms.SystemInformation.PrimaryMonitorSize.Width - Me.Width) / 2, 15 * scaleY)
                 a = 0
             Else
-                Me.Label1.Text = "网络延时过高！请检查你的网络设置。"
+                'Me.Label1.Text = "网络延时过高！请检查你的网络设置。"
+                Me.Label1.Text = "网络不可用，请检查你的网络设置"
                 If a = 0 Then
                     Me.Location = New Size((System.Windows.Forms.SystemInformation.PrimaryMonitorSize.Width - Me.Width) / 2, 15 * scaleY)
                     a = 1
@@ -58,7 +59,8 @@ Public Class Form1
                 Me.Show()
             End If
         Else
-            Me.Label1.Text = "网络连接已断开！请检查你的网络设置。"
+            'Me.Label1.Text = "网络连接已断开！请检查你的网络设置。"
+            Me.Label1.Text = "网络不可用，请检查你的网络设置"
             If a = 0 Then
                 Me.Location = New Size((System.Windows.Forms.SystemInformation.PrimaryMonitorSize.Width - Me.Width) / 2, 15 * scaleY)
                 a = 1

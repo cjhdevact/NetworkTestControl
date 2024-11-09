@@ -38,9 +38,9 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(63, 0)
+        Me.Label1.Location = New System.Drawing.Point(53, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(394, 38)
+        Me.Label1.Size = New System.Drawing.Size(350, 32)
         Me.Label1.TabIndex = 0
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -51,7 +51,7 @@ Partial Class Form1
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.PictureBox1, 0, 0)
@@ -60,7 +60,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(460, 38)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(406, 32)
         Me.TableLayoutPanel1.TabIndex = 1
         '
         'PictureBox1
@@ -70,7 +70,7 @@ Partial Class Form1
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(60, 38)
+        Me.PictureBox1.Size = New System.Drawing.Size(50, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -83,8 +83,8 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(460, 38)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(83, Byte), Integer), CType(CType(83, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(406, 32)
         Me.ControlBox = False
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
