@@ -103,10 +103,12 @@ echo.
 Reg delete HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /f
 rd /s /q "%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs\网络测试小工具"
 schtasks.exe /Delete /TN NetworkTestControl /F
+schtasks.exe /Delete /TN \CJH\NetworkTestControl /F
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v DisplayIcon /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v DisplayName /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v Publisher /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v UninstallString /f
+PUSHD ..
 rd /s /q "%programfiles%\CJH\NetworkTestControl"
 echo.
 cls
@@ -126,10 +128,12 @@ echo.
 Reg delete HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /f
 rd /s /q "%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs\网络测试小工具"
 schtasks.exe /Delete /TN NetworkTestControl /F
+schtasks.exe /Delete /TN \CJH\NetworkTestControl /F
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v DisplayIcon /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v DisplayName /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v Publisher /f
 if "%csu%" == "1" Reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NetworkTestControl /v UninstallString /f
+PUSHD ..
 rd /s /q "%programfiles%\CJH\NetworkTestControl"
 echo.
 cls

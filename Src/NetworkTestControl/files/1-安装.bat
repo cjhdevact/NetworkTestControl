@@ -129,7 +129,8 @@ if "%aa%" == "1" echo 如果长时间停留在此操作，请检测是否被杀毒软件拦截。
 if "%aa%" == "1" echo.
 if "%aa%" == "1" Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /t REG_SZ /d "%programfiles%\CJH\NetworkTestControl\NetworkTestControl.exe" /f
 if "%aa%" == "1" schtasks.exe /Delete /TN NetworkTestControl /F
-if "%aa%" == "1" schtasks.exe /create /tn NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
+if "%aa%" == "1" schtasks.exe /Delete /TN \CJH\NetworkTestControl /F
+if "%aa%" == "1" schtasks.exe /create /tn \CJH\NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
 echo.
 
 echo.
@@ -184,7 +185,8 @@ if "%aa%" == "1" echo 如果长时间停留在此操作，请检测是否被杀毒软件拦截。
 if "%aa%" == "1" echo.
 if "%aa%" == "1" Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\run /v NetworkTestControl /t REG_SZ /d "%programfiles%\CJH\NetworkTestControl\NetworkTestControl.exe" /f
 if "%aa%" == "1" schtasks.exe /Delete /TN NetworkTestControl /F
-if "%aa%" == "1" schtasks.exe /create /tn NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
+if "%aa%" == "1" schtasks.exe /Delete /TN \CJH\NetworkTestControl /F
+if "%aa%" == "1" schtasks.exe /create /tn \CJH\NetworkTestControl /xml "%~dp0NetworkTestControl.xml"
 echo.
 
 echo.
